@@ -1,48 +1,48 @@
-package day5TNSIF.Hierarchicalinheritance;
+package day5TNSIF.MultilevelInheritance;
 
-public class Employee extends Person{
-	
-	private String companyName;
-    private String Designation;
+import java.time.LocalDate;  // Recommended instead of Date
+
+public class Employee extends Person {
     
-    public Employee()
-    {
-    	System.out.println("Employee class default constructor");
+    private String deptName;
+    private double baseSalary;
+
+    public Employee(String name, long contactNo, LocalDate dateOfBirth, String deptName, double baseSalary) {
+        super(name, contactNo, dateOfBirth);  // Call Person constructor
+        this.deptName = deptName;
+        this.baseSalary = baseSalary;
     }
-    
-     public Employee(String name, String city, String companyName , String designation, String Designation)
-     {
-    	 super(name,city);
-    	 this.companyName= companyName;
-    	 this.Designation=Designation;
-    	 
-     }
-     
-     public String getCompany() {
-    	 return companyName;
-     }
-     
-     public void setCompanyName(String companyName) {
-    	 this.companyName = companyName;
-     }
-     
-     public String getDesignation() {
-    	 return Designation;
-     }
-     
-     public void setDesignation(String designation) {
-    	 Designation = designation;
-     }
-     
-     @Override
-     public String toString() {
-         return String.format("Employee [companyName=%s, designation=%s, getClass()=%s, hashCode()=%d, toString()=%s]",
-                              companyName, Designation, getClass(), hashCode(), super.toString());
-     }
 
+    public String getDeptName() {
+        return deptName;
+    }
 
-     
-     
- 
-     
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public double getBaseSalary() {
+        return baseSalary;
+    }
+
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+            "Employee [deptName=%s, baseSalary=%.2f, name=%s, contactNo=%d, dateOfBirth=%s]", 
+            deptName, baseSalary, getName(), getContactNo(), getDateOfBirth()
+        );
+    }
 }
+
+
+	
+	
+  
+
+
+
+
