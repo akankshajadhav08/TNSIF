@@ -10,7 +10,7 @@ public class Employee extends Person{
     	System.out.println("Employee class default constructor");
     }
     
-     public Employee(String name, String city, String companyName , String designation)
+     public Employee(String name, String city, String companyName , String designation, String Designation)
      {
     	 super(name,city);
     	 this.companyName= companyName;
@@ -36,20 +36,13 @@ public class Employee extends Person{
      
      @Override
      public String toString() {
-    	 return "Employee [companyName=" + companyName +", Designation="+ Designation +" , getClass()="+getClass()+",hashcode()="+ hashcode()+",toString()="+ super.toString()+"]";
+         return String.format("Employee [companyName=%s, designation=%s, getClass()=%s, hashCode()=%d, toString()=%s]",
+                              companyName, Designation, getClass(), hashCode(), super.toString());
      }
+
+
      
      
-     
-} 
-     
-     
-     
-     
-     
-     
-     
-     
-     
+ 
      
 }
