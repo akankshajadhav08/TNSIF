@@ -1,48 +1,28 @@
-package day5TNSIF.MultilevelInheritance;
+package day6TNSFStaticVariable;
 
-import java.time.LocalDate;  // Recommended instead of Date
+public class Employee {
+	
+	private String name;
+	private int id;
+	
+	//TNS common for all objects
+	static String companyName = "TNS";
+	
+	Employee(String name, int id)
+	{
+		this.name=name;
+		this.id=id;
+		}
 
-public class Employee extends Person {
-    
-    private String deptName;
-    private double baseSalary;
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", id=" + id + ", companyName = "+ companyName +"]";
+	}
 
-    public Employee(String name, long contactNo, LocalDate dateOfBirth, String deptName, double baseSalary) {
-        super(name, contactNo, dateOfBirth);  // Call Person constructor
-        this.deptName = deptName;
-        this.baseSalary = baseSalary;
-    }
+	
+	
+			
 
-    public String getDeptName() {
-        return deptName;
-    }
-
-    public void setDeptName(String deptName) {
-        this.deptName = deptName;
-    }
-
-    public double getBaseSalary() {
-        return baseSalary;
-    }
-
-    public void setBaseSalary(double baseSalary) {
-        this.baseSalary = baseSalary;
-    }
-
-    @Override
-    public String toString() {
-        return String.format(
-            "Employee [deptName=%s, baseSalary=%.2f, name=%s, contactNo=%d, dateOfBirth=%s]", 
-            deptName, baseSalary, getName(), getContactNo(), getDateOfBirth()
-        );
-    }
 }
-
-
-	
-	
-  
-
-
 
 
