@@ -1,13 +1,13 @@
 package day8Abstraction;
 
-public class Square {
+public class Rectangle {
 
-	public void show() {
+	public void calArea() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void calArea() {
+	public void show() {
 		// TODO Auto-generated method stub
 		
 	}
