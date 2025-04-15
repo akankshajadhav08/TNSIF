@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dice Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f7f7f7;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .dice-container {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .dice {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      border: 2px solid #333;
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      justify-items: center;
+      align-items: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      background-color: #333;
+      border-radius: 50%;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .result {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .Ani {
+    margin-right: 120px;
+    margin-top: -30px;
+}
+
+.Aki {
+    margin-left: 130px;
+    margin-top: -60px;
+}
+  </style>
+</head>
+<body>
+    <h2>UID No-T090800708</h2>
+  <h1>Dice Game For Even Players</h1>
+  <div class="dice-container">
+    <div id="dice1" class="dice"></div>
+    <div id="dice2" class="dice"></div>
+  </div>
+
+  <div class="Ani">
+  <h3>Anirudh</h3>
+  </div>
+  <div class="Aki">
+  <h3>Akshay</h3>
+  </div>
+  <button onclick="rollDice()">Roll Dice</button>
+  <div id="result" class="result"></div>
+
+  <script>
+    // Function to create the dots on the dice based on the score
+    function renderDice(diceElement, score) {
+      diceElement.innerHTML = '';
+      const dotPositions = {
+        1: [4],
+        2: [0, 8],
+        3: [0, 4, 8],
+        4: [0, 2, 6, 8],
+        5: [0, 2, 4, 6, 8],
+        6: [0, 2, 3, 5, 6, 8],
+      };
+
+      for (let i = 0; i < 9; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (!dotPositions[score].includes(i)) {
+          dot.classList.add('hidden');
+        }
+        diceElement.appendChild(dot);
+      }
+    }
+
+    // Function to roll the dice
+    function rollDice() {
+      const dice1Score = Math.floor(Math.random() * 6) + 1;
+      const dice2Score = Math.floor(Math.random() * 6) + 1;
+
+      const dice1 = document.getElementById('dice1');
+      const dice2 = document.getElementById('dice2');
+      const result = document.getElementById('result');
+
+      renderDice(dice1, dice1Score);
+      renderDice(dice2, dice2Score);
+
+      if (dice1Score > dice2Score) {
+        result.textContent = `Anirudh wins with a score of ${dice1Score}!`;
+      } else if (dice1Score < dice2Score) {
+        result.textContent = `Akshay wins with a score of ${dice2Score}!`;
+      } else {
+        result.textContent = `It's a draw with both scoring ${dice1Score}!`;
+      }
+    }
+  </script>
+</body>
+</html>
